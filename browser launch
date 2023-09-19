@@ -1,0 +1,40 @@
+package seleniumtest;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Browserlaunch {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.addArguments("--remote-allow-origins=*");
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver(chromeOptions);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().window().maximize();
+
+		driver.get("https://www.google.com/");
+		System.out.println(driver.getTitle());
+		System.out.println(driver.getCurrentUrl());
+		
+		driver.findElement(By.tagName("textarea")).sendKeys(" what is selenium");
+		driver.findElement(By.xpath("//input[@value='Google Search']")).click();
+		driver.findElement(By.className("gb_j")).click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.findElement(By.id("logo")).click();
+	
+
+		//driver.quit();
+
+	}
+
+}
