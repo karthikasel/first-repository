@@ -32,8 +32,10 @@ public class Browserlaunch {
 		
 		driver.findElement(By.id("logo")).click();
 	
-
-		//driver.quit();
+                driver.findElement(By.tagName("textarea")).sendKeys(" what is java");
+		driver.findElement(By.xpath("//input[@value='Google Search']")).click();
+		driver.findElement(By.className("gb_j")).click();
+		
 
 	}
 
