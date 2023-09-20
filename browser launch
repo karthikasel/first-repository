@@ -29,7 +29,7 @@ public class Browserlaunch {
 		driver.findElement(By.tagName("textarea")).sendKeys(" what is selenium");
 		driver.findElement(By.xpath("//input[@value='Google Search']")).click();
 		driver.findElement(By.className("gb_j")).click();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
 		driver.findElement(By.id("logo")).click();
 	
 
